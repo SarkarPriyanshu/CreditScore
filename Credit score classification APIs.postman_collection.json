@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "7b6bd277-f0b0-4338-9ac3-678ecf534d74",
+		"name": "Credit score classification APIs",
+		"description": "### Summary :\n\nGiven a person’s credit-related information, build a machine learning model that.\n\n### **Problem Statement :**\n\n**You are working as a data scientist in a global finance company. Over the years, the company has collected basic bank details and gathered a lot of credit-related information. The management wants to build an intelligent system to segregate the people into credit score brackets to reduce the manual efforts.**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24906845"
+	},
+	"item": [
+		{
+			"name": "Get Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "## Response\n\n``` json\n{\n  \"message\": {\n    \"content\": \"Problem Statement You are working as a data scientist in a global finance company. Over the years, the company has collected basic bank details and gathered a lot of credit-related information. The management wants to build an intelligent system to segregate the people into credit score brackets to reduce the manual efforts.\",\n    \"header\": \"Credit score classification\",\n    \"summary\": \"Given a person’s credit-related information, build a machine learning model that.\"\n  },\n  \"resultStatus\": \"SUCCESS\"\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Predict",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ID\": \"0x94d1\",\r\n  \"Customer_ID\": \"CUS_0xbfe8\",\r\n  \"Month\": \"April\",\r\n  \"Name\": \"Ellen Freilichl\",\r\n  \"Age\": 15,\r\n  \"SSN\": \"29-08-5018\",\r\n  \"Occupation\": \"Entrepreneur\",\r\n  \"Annual_Income\": 15007.61,\r\n  \"Monthly_Inhand_Salary\": 1135.634167,\r\n  \"Num_Bank_Accounts\": 6,\r\n  \"Num_Credit_Card\": 6,\r\n  \"Interest_Rate\": 27,\r\n  \"Num_of_Loan\": -100,\r\n  \"Type_of_Loan\": \"Credit-Builder Loan, Mortgage Loan, Auto Loan\",\r\n  \"Delay_from_due_date\": 30,\r\n  \"Num_of_Delayed_Payment\": 16,\r\n  \"Changed_Credit_Limit\": 15.28,\r\n  \"Num_Credit_Inquiries\": 13,\r\n  \"Credit_Mix\": \"Standard\",\r\n  \"Outstanding_Debt\": 2530.81,\r\n  \"Credit_Utilization_Ratio\": 34.049925,\r\n  \"Credit_History_Age\": \"16 Years and 0 Months\",\r\n  \"Payment_of_Min_Amount\": \"Yes\",\r\n  \"Total_EMI_per_month\": 49.658257,\r\n  \"Amount_invested_monthly\": 100.15900461026104,\r\n  \"Payment_Behaviour\": \"Low_spent_Small_value_payments\",\r\n  \"Monthly_Balance\": 253.74615507352132,\r\n  \"Credit_Score\": \"Standard\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"predict"
+					]
+				},
+				"description": "## What it do?\n\nThis api get some of financial related data and returns the credit score\n\n- result : 1 means customer have a Good credit score.\n- result : 2 means customer have a Standard credit score.\n- result : 3 means customer have a Poor credit score.\n    \n\n## Why this Api?\n\nWell banking and financial bodies need to know about certain custumers credit score before taking some sort of action on that customer, it can be anything like, providing aid by giving loan or any sort of benefits, or taking legal action on customer based on his/her past behaviour and factors like credit score.\n\n## How to use?\n\n``` python\nhttp://localhost:5000/predict\n\n```\n\n## Expected input data\n\n``` json\n{\n  \"ID\": \"0x94d1\",\n  \"Customer_ID\": \"CUS_0xbfe8\",\n  \"Month\": \"April\",\n  \"Name\": \"Ellen Freilichl\",\n  \"Age\": 15,\n  \"SSN\": \"29-08-5018\",\n  \"Occupation\": \"Entrepreneur\",\n  \"Annual_Income\": 15007.61,\n  \"Monthly_Inhand_Salary\": 1135.634167,\n  \"Num_Bank_Accounts\": 6,\n  \"Num_Credit_Card\": 6,\n  \"Interest_Rate\": 27,\n  \"Num_of_Loan\": -100,\n  \"Type_of_Loan\": \"Credit-Builder Loan, Mortgage Loan, Auto Loan\",\n  \"Delay_from_due_date\": 30,\n  \"Num_of_Delayed_Payment\": 16,\n  \"Changed_Credit_Limit\": 15.28,\n  \"Num_Credit_Inquiries\": 13,\n  \"Credit_Mix\": \"Standard\",\n  \"Outstanding_Debt\": 2530.81,\n  \"Credit_Utilization_Ratio\": 34.049925,\n  \"Credit_History_Age\": \"16 Years and 0 Months\",\n  \"Payment_of_Min_Amount\": \"Yes\",\n  \"Total_EMI_per_month\": 49.658257,\n  \"Amount_invested_monthly\": 100.15900461026104,\n  \"Payment_Behaviour\": \"Low_spent_Small_value_payments\",\n  \"Monthly_Balance\": 253.74615507352132,\n  \"Credit_Score\": \"Standard\"\n}\n\n```\n\n## Resultant Prediction\n\n## Blocks of code\n\n``` json\n{\n    \"result\": \"1\"\n}\n\n```"
+			},
+			"response": []
+		}
+	]
+}

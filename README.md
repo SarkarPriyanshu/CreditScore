@@ -78,7 +78,7 @@ You are working as a data scientist in a global finance company. Over the years,
         We applied Standard scaler for scaling down feature std,max and mix values
 
 ## Model Selection and Evaluations
-> ###Logistic Model and evaluation
+> ### Logistic Model and evaluation
 >>
         Observation Logistic Regression:
           * Accuracy Score : 0.6378

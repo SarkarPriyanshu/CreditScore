@@ -2,11 +2,13 @@ import re
 import pandas as pd
 import numpy as np
 
-
+# This function cleans up the given data 
+#  Handle missing and noisy data
 class Cleaner:
     def __init__(self):
         self.LoanType = []
-        
+
+        # Handles the special character present in Age feature
     def handleAge(self,value):
         bad_chars=[';', ':', '!', "*",'_','-',"%",'#','$']  
         if type(value) == float :    
@@ -18,6 +20,7 @@ class Cleaner:
                 return int(''.join((filter(lambda i: i not in bad_chars,
                                       value)))) 
     
+    # Handles the special character present in AnnualIncome feature
     def handleAnnualIncome(self,value):
         bad_chars=[';', ':','-','!', "*",'_',"%",'#','$']
         if True if type(value)==int or type(value) == float else True if value.isnumeric() else False:
@@ -26,10 +29,12 @@ class Cleaner:
             return float(''.join((filter(lambda i: i not in bad_chars,
                                   value))))
     
+    # Handles the special character present in AnnualIncome feature
     def handleNum_of_Delayed_Payment(self,value):
         bad_chars=[';', ':','-','!', "*",'_',"%",'#','$']
         if type(value) == float:
             return value
+        # This condition check if the recieved value is int type or string type based on that it apply certain operations
         elif True if type(value)==int or type(value) == float else True if value.isnumeric() else False:
                 return int(value)
         else:
@@ -42,7 +47,7 @@ class Cleaner:
             return True
         except ValueError:
             return False
-    
+    # Handles the special character present in Changed_Credit_Limit feature
     def handleChanged_Credit_Limit(self,value):
         bad_chars=[';', ':', '!','-',"*",'_',"%",'#','$']
         if self.isFloat(value):
@@ -52,25 +57,26 @@ class Cleaner:
         else:
             return int(''.join((filter(lambda i: i not in bad_chars,
                                                   value))))
-    
+    # Handles the special character present in Changed_Credit_Limit feature
     def handleCredit_History_Age(self,value):
         if type(value) == float:
             return value 
         else:
             return ' '.join([item for item in value.split(' ') if item.isnumeric()])
         
-        
+    # Handles the special character present in Amount_invested_monthly feature    
     def handleAmount_invested_monthly(self,value):
         bad_chars=[';', ':','-','!', "*",'_',"%",'#','$']
         if type(value) == float:
             return value
+        # This condition check if the recieved value is int type or string type based on that it apply certain operations
         elif True if type(value)==int or type(value) == float else True if value.isnumeric() else False:
             return float(value)
         else:
             return float(''.join((filter(lambda i: i not in bad_chars,
                                                   value))))     
     
-    # Return types of loan from data     
+    # return unique values from type of loan   
     def typesOfLoans(self,df):
         for value in df['Type_of_Loan'].unique():
             if type(value) != float: 
@@ -106,7 +112,8 @@ class Cleaner:
             data['Type_of_Loan_Na'] = 1.0
         
         return data 
-    
+
+    # Handle Credit_History_Age_ value split the data into two feature
     def handleSplitCredit_History_Age(self,value,data):
         if type(value) == str:
             data['Credit_History_Age_years'] = int(value.split()[0])
@@ -124,7 +131,8 @@ class Cleaner:
         for index in [randomRow,extraRandomRow]:
             arrayOfData.append(self.handleclean(randomRow,df))
         return arrayOfData
-        
+
+    # get data from user clean the data and return that data to user.
     def handleclean(self,randomRow=None,df=None,userData=None):
         data = None
         if isinstance(userData, pd.Series):

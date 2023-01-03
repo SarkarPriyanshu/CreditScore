@@ -191,7 +191,7 @@ You are working as a data scientist in a global finance company. Over the years,
            
 ## Flask and Api
 >>
-    * For backend we used [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+  * For backend we used [Flask](https://flask.palletsprojects.com/en/2.2.x/)
     
 ## Api Testing
 >>
@@ -208,4 +208,4 @@ You are working as a data scientist in a global finance company. Over the years,
 
 ## Chao
 
-A passion project by [Priyanshu Sarkar] here is my [Github](https://github.com/SarkarPriyanshu) and  [CodeSandBox](https://codesandbox.io/u/SarkarPriyanshu)
+A passion project by Priyanshu Sarkar here is my [Github](https://github.com/SarkarPriyanshu) and  [CodeSandBox](https://codesandbox.io/u/SarkarPriyanshu)

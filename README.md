@@ -2,7 +2,7 @@
 
 # Credit score classification Predictor
 
-## [Summary] | [Problem Statement]
+## Summary | Problem Statement
 
 ### Summary :
 Given a person’s credit-related information, build a machine learning model that.
